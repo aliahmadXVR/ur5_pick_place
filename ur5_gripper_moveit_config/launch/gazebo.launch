@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="paused" default="false"/>
+  <arg name="gazebo_gui" default="true"/>
+  <arg name="urdf_path" default="$(find ur_description)/urdf/ur5_robotiq85_gripper.urdf.xacro"/>
+  <arg name="world_name" default="worlds/empty.world"/>
+  <arg name="robot_spawn_position_z_axis" default="0.01"/>
+
+  <!-- startup simulated world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" default="$(arg world_name)"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="gui" value="$(arg gazebo_gui)"/>
+  </include>
+
+  <!-- send robot urdf to param server -->
+  <param name="robot_description" textfile="$(arg urdf_path)" />
+  <arg name="initial_joint_states" value="0.0, -1.54, 1.54, -1.57, -1.57, 0.0" />
+  <arg name="joint_names" value="elbow_joint shoulder_lift_joint shoulder_pan_joint wrist_1_joint wrist_2_joint wrist_3_joint" />
+
+  <!-- push robot_description to factory and spawn robot in gazebo at the origin, change x,y,z arguments to spawn in a different position -->
+  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model robot -x 0 -y 0 -z $(arg robot_spawn_position_z_axis)"
+    respawn="false" output="screen" />
+
+  <node name="spawn_table" pkg="gazebo_ros" type="spawn_model" args="-sdf -file /home/xavor/.gazebo/models/cafe_table/model.sdf -model cafe_table -x 0.03 -y -0.67 -z 0.0"/> 
+
+
+  <node name="spawn_ccube" pkg="gazebo_ros" type="spawn_model" args="-file /home/xavor/.gazebo/models/ccube/ccube.urdf.xacro -urdf -model ccube -x 0.03 -y -0.67 -z 2.0"/> 
+  
+
+  <include file="$(find ur5_gripper_moveit_config)/launch/ros_controllers.launch"/>
+
+</launch>
+
+
+<!-- position: 
+      x: 0.0359347164631
+      y: -0.670064747334
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      w: 1.0 -->
+
