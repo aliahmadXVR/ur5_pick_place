@@ -21,4 +21,3 @@ try:
 
 except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
     rospy.logerr("Failed to get transform from /world to /end_effector_link")
-
