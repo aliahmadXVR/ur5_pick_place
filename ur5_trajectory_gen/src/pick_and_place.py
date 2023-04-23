@@ -27,10 +27,10 @@ def pick_and_place():
     pick_pose.pose.position.x = 0.11
     pick_pose.pose.position.y = -0.71
     pick_pose.pose.position.z = 0.18
-    pick_pose.pose.orientation.x = 0.0
-    pick_pose.pose.orientation.y = 0.0
-    pick_pose.pose.orientation.z = 0.0
-    pick_pose.pose.orientation.w = 1.0
+    pick_pose.pose.orientation.x = -0.03
+    pick_pose.pose.orientation.y = 0.99
+    pick_pose.pose.orientation.z = 0.131
+    pick_pose.pose.orientation.w = 0.009
 
     place_pose = geometry_msgs.msg.PoseStamped()
     place_pose.header.frame_id = "world"
@@ -51,9 +51,9 @@ def pick_and_place():
     joint_limits.joint_constraints.append(
         moveit_msgs.msg.JointConstraint(
             joint_name="wrist_2_joint",
-            position=0.0,
-            tolerance_above=-1.74533,
-            tolerance_below=1.39626,
+            position=-1.57,
+            tolerance_above=-1.74,
+            tolerance_below=-1.39,
             weight=1.0           
         )
     )
@@ -81,6 +81,20 @@ def pick_and_place():
             weight=1.0
         )
     )
+
+    joint_limits = moveit_msgs.msg.Constraints()
+    joint_limits.name = "joint_limits"
+    joint_limits.joint_constraints.append(
+        moveit_msgs.msg.JointConstraint(
+            joint_name="shoulder_pan_joint",
+            position=0.0,
+            tolerance_above=-0.87,
+            tolerance_below=-1.57,
+            weight=1.0
+        )
+    )
+
+
     # Apply joint limits to the robot
     move_group.set_path_constraints(joint_limits)
 
