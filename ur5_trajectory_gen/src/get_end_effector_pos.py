@@ -9,11 +9,11 @@ rospy.init_node('get_end_effector_position')
 listener = tf.TransformListener()
 
 # Wait for the transform between the desired frames to become available
-listener.waitForTransform('/world', '/tool0', rospy.Time(), rospy.Duration(4.0))
+listener.waitForTransform('/world', '/ee_link', rospy.Time(), rospy.Duration(4.0))
 
 try:
     # Get the transform from the '/world' frame to the '/end_effector_link' frame
-    (trans, rot) = listener.lookupTransform('/world', '/tool0', rospy.Time(0))
+    (trans, rot) = listener.lookupTransform('/world', '/ee_link', rospy.Time(0))
     print("Translation End Effector Position (in world frame):")
     print("X: ", trans[0])
     print("Y: ", trans[1])

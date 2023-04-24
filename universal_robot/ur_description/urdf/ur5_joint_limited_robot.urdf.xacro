@@ -33,4 +33,4 @@
 </robot>
 
 
-
+<!-- wrist_2_lower_limit="${-pi}" wrist_2_upper_limit="${pi}" -->

@@ -14,18 +14,12 @@ robot = moveit_commander.RobotCommander()
 group_name = "ur5_arm"
 move_group = moveit_commander.MoveGroupCommander(group_name)
 
-home_joint_angles = [-1.50, -1.50, 1.50, -1.55, -1.55, 0.0]  # Specify desired joint angles here
+home_joint_angles = [-1.50, -1.50, 1.50, -1.55, -1.55, 0.0] 
 
-#positiion of gripper for pick up 
-# ('X: ', 0.11637414141913766)
-# ('Y: ', -0.7158997405049876)
-# ('Z: ', 0.18572223153344175)
-#Joint angles for Pickup
-# [-1.5628585317885957, -0.9031472674889294, 1.3015263544182885, -1.938818808039568, -1.5522622799859773, -0.06189261993133233]
 init_pose = geometry_msgs.msg.Pose()
-init_pose.position.x = 0.030 #0.817
-init_pose.position.y = -0.670 #0.191
-init_pose.position.z = 0.800#-0.006
+init_pose.position.x = 0.030 
+init_pose.position.y = -0.670 
+init_pose.position.z = 0.800 
 init_pose.orientation.w = 1.0
 
 start_pose = Pose()

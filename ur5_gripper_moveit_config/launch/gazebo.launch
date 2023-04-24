@@ -24,9 +24,7 @@
 
   <node name="spawn_table" pkg="gazebo_ros" type="spawn_model" args="-sdf -file /home/xavor/.gazebo/models/cafe_table/model.sdf -model cafe_table -x 0.03 -y -0.67 -z 0.0"/> 
 
-
-  <node name="spawn_ccube" pkg="gazebo_ros" type="spawn_model" args="-file /home/xavor/.gazebo/models/ccube/ccube.urdf.xacro -urdf -model ccube -x 0.03 -y -0.67 -z 2.0"/> 
-  
+  <!-- <node name="spawn_ccube" pkg="gazebo_ros" type="spawn_model" args="-file /home/xavor/.gazebo/models/ccube/ccube.urdf.xacro -urdf -model ccube -x 0.148 -y -0.504 -z 2.0"/>  -->
 
   <include file="$(find ur5_gripper_moveit_config)/launch/ros_controllers.launch"/>
 
