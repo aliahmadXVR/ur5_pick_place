@@ -243,7 +243,7 @@
           <mesh filename="package://robotiq_description/meshes/visual/robotiq_85_finger_tip_link.dae"/>
         </geometry>
       </visual>
-      <collision>
+      <collision name="robotiq_85_right_finger_tip_link_collision">
         <geometry>
           <mesh filename="package://robotiq_description/meshes/collision/robotiq_85_finger_tip_link.stl"/>
         </geometry>
@@ -273,7 +273,43 @@
       <minDepth>0.001</minDepth>
     </gazebo>
     
+<!-- Bumper Plugin -->
+     <gazebo reference="${prefix}robotiq_85_left_finger_tip_link">
+        <sensor name="main_bumper" type="contact">
+            <selfCollide>true</selfCollide>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>3.0</updateRate>
+            <material>Gazebo/Red</material>
+            <contact>
+                <collision>robotiq_85_right_finger_tip_link_collision</collision>
+            </contact>
+            <plugin name="bumper0_plugin" filename="libgazebo_ros_bumper.so">
+                <bumperTopicName>bumper_vals</bumperTopicName>
+                <frameName>robotiq_85_left_finger_tip_link</frameName>
+            </plugin>
+        </sensor>
+    </gazebo> 
+    
+
+
     <xacro:robotiq_85_gripper_transmission prefix="${prefix}" />
 
   </xacro:macro>
 </robot>
+
+
+
+    
+<!-- libgazebo_ros_bumper -->
+
+
+<!-- Finger Contact Sensing -->
+    <!-- <gazebo reference="${prefix}robotiq_85_right_finger_tip_link">
+      <sensor name='my_contact' type='contact'>
+          <plugin name="my_plugin" filename="libcontact.so"/>
+              <contact>
+                <collision>robotiq_85_right_finger_tip_link_collision</collision>
+              </contact>
+            <update_rate> 5 </update_rate>
+            </sensor>
+      </gazebo> -->
