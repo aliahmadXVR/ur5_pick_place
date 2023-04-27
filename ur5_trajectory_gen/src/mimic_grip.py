@@ -19,22 +19,6 @@ listener = tf.TransformListener()
 while not rospy.is_shutdown():
     
     finger_link_position_msg = get_link_state("robotiq_85_left_finger_tip_link", '')
-    # print(finger_link_position_msg)
-    # finger_link_position = finger_link_position_msg.pose.position
-    # listener.waitForTransform('/world', '/robotiq_85_left_finger_tip_link', rospy.Time(), rospy.Duration(3.0))
-
-    # try:
-    #     (finger_trans, finger_rot) = listener.lookupTransform('/world', '/robotiq_85_left_finger_tip_link', rospy.Time(0))
-
-    # except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
-    #     rospy.logerr("Failed to get transform from /world to /end_effector_link")
-
-    # distance = math.sqrt((box_position.x - finger_trans[0])**2 +
-    #                  (box_position.y - finger_trans[1])**2 +
-    #                  (box_position.z -finger_trans[2])**2)
-
-    # print('Distance= ')
-    # print(distance)
 
     model_states = ModelState()
     model_states.model_name = 'ccube'
@@ -43,31 +27,7 @@ while not rospy.is_shutdown():
     model_states.pose.position.z = finger_link_position_msg.link_state.pose.position.z-0.025
     joined_state = set_model_state(model_states)
 
-    # # If the distance is less than 0.77, publish a transform between the links
-    # if distance > 0.77:
-    #     model_states.model_name = 'ccube'
-    #     model_states.pose.position.x = finger_position.link_state.pose.position.x
-    #     model_states.pose.position.y = finger_position.link_state.pose.position.y
-    #     model_states.pose.position.z = finger_position.link_state.pose.position.z
-    #     joined_state = set_model_state(model_states)
-
     rospy.sleep(0.001)
-
-
-
-# def carry_box():
-#     grip = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
-#     arm = rospy.ServiceProxy('/gazebo/get_link_state', GetLinkState)
-#     state = arm("link3","")
-#     state_msg = ModelState()
-#     state_msg.model_name = 'box'
-#     state_msg.pose.position.x = finger_position.link_state.pose.position.x
-#     state_msg.pose.position.y = finger_position.link_state.pose.position.y
-#     state_msg.pose.position.z = finger_position.link_state.pose.position.z
-#     grip_state = grip(state_msg)
-
-
-
 
 
 

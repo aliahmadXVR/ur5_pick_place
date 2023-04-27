@@ -7,7 +7,6 @@ import geometry_msgs.msg
 from geometry_msgs.msg import Pose, Point, Quaternion
 import subprocess
 
-
 rospy.init_node('ur5_moveit_demo', anonymous=True)
 print ('Init Done')
 
@@ -76,12 +75,6 @@ plan = move_group.plan()
 move_group.execute(plan)
 rospy.sleep(2)
 move_group.stop()
-
-
-
-
-
-
 
 moveit_commander.roscpp_shutdown()
 

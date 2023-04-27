@@ -30,15 +30,3 @@
   <include file="$(find ur5_gripper_moveit_config)/launch/ros_controllers.launch"/>
 
 </launch>
-
-
-<!-- position: 
-      x: 0.0359347164631
-      y: -0.670064747334
-      z: 0.0
-    orientation: 
-      x: 0.0
-      y: 0.0
-      z: 0.0
-      w: 1.0 -->
-
