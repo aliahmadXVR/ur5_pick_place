@@ -8,3 +8,5 @@
 # Run the Pick & Place Node
 
 ```rosrun ur5_trajectory_gen pick_and_place.py```
+
+![](https://github.com/aliahmadXVR/ur5_pick_place/blob/master/pick_place.gif)
