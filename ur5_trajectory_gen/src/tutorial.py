@@ -492,8 +492,8 @@ def main():
         )
         tutorial.go_to_joint_state()
 
-        input("============ Press `Enter` to execute a movement using a pose goal ...")
-        tutorial.go_to_pose_goal()
+        # input("============ Press `Enter` to execute a movement using a pose goal ...")
+        # tutorial.go_to_pose_goal()
 
         input("============ Press `Enter` to plan and display a Cartesian path ...")
         cartesian_plan, fraction = tutorial.plan_cartesian_path()
@@ -506,25 +506,25 @@ def main():
         input("============ Press `Enter` to execute a saved path ...")
         tutorial.execute_plan(cartesian_plan)
 
-        input("============ Press `Enter` to add a box to the planning scene ...")
-        tutorial.add_box()
+        # input("============ Press `Enter` to add a box to the planning scene ...")
+        # tutorial.add_box()
 
-        input("============ Press `Enter` to attach a Box to the Panda robot ...")
-        tutorial.attach_box()
+        # input("============ Press `Enter` to attach a Box to the Panda robot ...")
+        # tutorial.attach_box()
 
-        input(
-            "============ Press `Enter` to plan and execute a path with an attached collision object ..."
-        )
-        cartesian_plan, fraction = tutorial.plan_cartesian_path(scale=-1)
-        tutorial.execute_plan(cartesian_plan)
+        # input(
+        #     "============ Press `Enter` to plan and execute a path with an attached collision object ..."
+        # )
+        # cartesian_plan, fraction = tutorial.plan_cartesian_path(scale=-1)
+        # tutorial.execute_plan(cartesian_plan)
 
-        input("============ Press `Enter` to detach the box from the Panda robot ...")
-        tutorial.detach_box()
+        # input("============ Press `Enter` to detach the box from the Panda robot ...")
+        # tutorial.detach_box()
 
-        input(
-            "============ Press `Enter` to remove the box from the planning scene ..."
-        )
-        tutorial.remove_box()
+        # input(
+        #     "============ Press `Enter` to remove the box from the planning scene ..."
+        # )
+        # tutorial.remove_box()
 
         print("============ Python tutorial demo complete!")
     except rospy.ROSInterruptException:
