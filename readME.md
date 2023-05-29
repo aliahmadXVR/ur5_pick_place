@@ -20,3 +20,14 @@
 ## Run the Node
 
 ```rosrun ur5_trajectory_gen line_move.py```
+
+
+# Run Straight Line With Fixed Force
+
+## Load Gazebo & RVIZ
+
+```roslaunch ur5_gripper_moveit_config demo_gazebo.launch```
+
+## Run the Node
+
+```rosrun ur5_trajectory_gen line_move_force.py```
