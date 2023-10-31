@@ -41,9 +41,9 @@ def keyboard_control():
     target_pose.orientation.w = current_pose.orientation.w
 
     # Set the motion increments
-    dx = 0.03
-    dy = 0.03
-    dz = 0.02
+    dx = 0.01  #0.03
+    dy = 0.01  #0.03
+    dz = 0.01  #0.02
     dtheta = 0.1
 
     # Loop until Ctrl-C is pressed

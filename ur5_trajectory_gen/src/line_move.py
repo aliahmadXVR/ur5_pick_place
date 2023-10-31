@@ -17,10 +17,8 @@ move_group = moveit_commander.MoveGroupCommander(group_name)
 gripper_group = moveit_commander.MoveGroupCommander('gripper')
 
 home_joint_angles = [-1.50, -1.50, 1.50, -1.55, -1.55, 0.0] 
-#[-1.4183014658059134, -1.414370891919349, 2.197920227811732, -2.316411527081163, -1.5490420721398506, 0.10154925002037452]
-pick_joint_angles = [-1.4183014658059134, -1.414370891919349, 2.197920227811732, -2.316411527081163, -1.5490420721398506, 0.10154925002037452] #[-1.1520582570070497, -1.3718278606223802, 2.0967660701658684, -2.2530223383587824, -1.5425112660928555, 0.3649237989447984]
-place_joint_angles = [-1.8373808770962263, -1.2333595828936792, 1.9591080802974492, -2.24350744482176, -1.5545188647636587, -0.2821204263605024]
-
+pick_joint_angles = [-1.5024685883829463, -1.288272797025268, 1.972095616995679, -2.217765520408774, -1.5496723128543648, -0.0001668693358825024]
+place_joint_angles = [-1.91342252110476, -1.3238122461523005, 2.0161890844310726, -2.2261916459086066, -1.5627755109263948, -0.4103684155957481]
 #First Execute the Homing
 move_group.set_joint_value_target(home_joint_angles)
 plan = move_group.plan()
@@ -50,9 +48,9 @@ waypoints = []
 scale = 1
 
 wpose = move_group.get_current_pose().pose
-wpose.position.z -= scale * 0.1  # First move up (z)
-# wpose.position.y += scale * 0.2  # and sideways (y)
-waypoints.append(copy.deepcopy(wpose))
+# wpose.position.z -= scale * 0.1  # First move up (z)
+# # wpose.position.y += scale * 0.2  # and sideways (y)
+# waypoints.append(copy.deepcopy(wpose))
 
 wpose.position.x += scale * -0.5  # Second move forward/backwards in (x)
 waypoints.append(copy.deepcopy(wpose))
