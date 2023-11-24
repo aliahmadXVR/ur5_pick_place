@@ -31,3 +31,10 @@
 ## Run the Node
 
 ```rosrun ur5_trajectory_gen line_move_force.py```
+
+
+# Start with a New Object (Fork Type)
+
+```roslaunch ur5_gripper_moveit_config demo_gazebo_fork.launch```
+
+```rosrun ur5_trajectory_gen fork_obj_pos.py```
