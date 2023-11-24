@@ -22,8 +22,11 @@ while not rospy.is_shutdown():
 
     model_states = ModelState()
     model_states.model_name = 'model'
-    model_states.pose.position.x = finger_link_position_msg.link_state.pose.position.x-0.030
-    model_states.pose.position.y = finger_link_position_msg.link_state.pose.position.y
+    # model_states.pose.position.x = finger_link_position_msg.link_state.pose.position.x-0.030
+    # model_states.pose.position.y = finger_link_position_msg.link_state.pose.position.y
+    # model_states.pose.position.z = finger_link_position_msg.link_state.pose.position.z-0.025
+    model_states.pose.position.x = finger_link_position_msg.link_state.pose.position.x-0.044
+    model_states.pose.position.y = finger_link_position_msg.link_state.pose.position.y-0.025
     model_states.pose.position.z = finger_link_position_msg.link_state.pose.position.z-0.025
     joined_state = set_model_state(model_states)
 

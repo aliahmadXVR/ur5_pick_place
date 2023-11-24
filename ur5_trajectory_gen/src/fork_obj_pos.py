@@ -15,8 +15,9 @@ group_name = "ur5_arm"
 move_group = moveit_commander.MoveGroupCommander(group_name)
 gripper_group = moveit_commander.MoveGroupCommander('gripper')
 
-# home_joint_angles = [-1.50, -1.50, 1.50, -1.55, -1.55, 0.0] 
-home_joint_angles = [ -1.5011178815242383, -1.3739078517056527, 1.8975074771314553, -2.058466662963273, -1.5499322153193642, -0.0014575012444089097]
+# home_joint_angles = [ -1.5011178815242383, -1.3739078517056527, 1.8975074771314553, -2.058466662963273, -1.5499322153193642, -0.0014575012444089097]
+home_joint_angles = [-1.5028521223100038, -1.3606884375055799, 1.9167339325438757, -2.084721616001108, -1.5497631380021826, 8.967910447932326e-05]
+place_joint_angles = [-1.8373808770962263, -1.2333595828936792, 1.9591080802974492, -2.24350744482176, -1.5545188647636587, -0.2821204263605024]
 
 
 init_pose = geometry_msgs.msg.Pose()
@@ -63,8 +64,16 @@ gripper_group.set_joint_value_target(gripper_joint_goal)
 gripper_group.go()
 move_group.stop()
 
-gripping_node = subprocess.Popen(['rosrun', 'ur5_trajectory_gen', 'mimic_grip.py'])
+gripping_node = subprocess.Popen(['rosrun', 'ur5_trajectory_gen', 'mimic_grip_fork.py'])
 rospy.sleep(2)
+move_group.stop()
+
+# # Execute the Pick Pose
+# move_group.set_joint_value_target(place_joint_angles)
+# plan = move_group.plan()
+# move_group.execute(plan)
+# rospy.sleep(2)
+# move_group.stop()
 
 # Clean up MoveIt Commander
 move_group.clear_pose_targets()
