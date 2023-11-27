@@ -22,6 +22,7 @@
         <geometry>
           <mesh>
             <uri>/home/xavor/Downloads/Lingjian new meter 1.dae</uri>
+            <uri>model://fork_object/meshes/cafe_table.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
