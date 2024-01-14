@@ -72,4 +72,9 @@
     <arg name="moveit_warehouse_database_path" value="$(arg db_path)"/>
   </include>
 
+  <!-- <node name="mimic_grip" 
+            pkg="ur5_trajectory_gen" 
+            type="mimic_grip_fork.py" > -->
+      
+  <!-- </node> -->
 </launch>
