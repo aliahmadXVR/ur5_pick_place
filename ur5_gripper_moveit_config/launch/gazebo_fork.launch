@@ -16,7 +16,8 @@
 
   <!-- send robot urdf to param server -->
   <param name="robot_description" textfile="$(arg urdf_path)" />
-  <arg name="initial_joint_states" value="0.0, -1.54, 1.54, -1.57, -1.57, 0.0" />
+  <!-- <arg name="initial_joint_states" value="0.0, 0.0, 1.54, -1.57, -1.57, 0.0" /> -->
+  <arg name="initial_joint_states" value="1.502,-1.36, 1.916, -2.08, -1.54, 0.0" />
   <arg name="joint_names" value="elbow_joint shoulder_lift_joint shoulder_pan_joint wrist_1_joint wrist_2_joint wrist_3_joint" />
 
   <!-- push robot_description to factory and spawn robot in gazebo at the origin, change x,y,z arguments to spawn in a different position -->

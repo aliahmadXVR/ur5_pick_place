@@ -41,13 +41,12 @@
     <arg name="load_robot_description" value="false"/>
   </include>
 
-  <!-- If needed, broadcast static tf for robot root -->
-  
-
   <!-- We do not have a robot connected, so publish fake joint states -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
     <param name="use_gui" value="$(arg use_gui)"/>
     <rosparam param="source_list">[/joint_states]</rosparam>
+    <!-- Use initial joint states -->
+    <!-- <rosparam param="robot_description" subst_value="true">initial_joint_states</rosparam> -->
   </node>
 
   <!-- Given the published joint states, publish tf for the robot links -->
