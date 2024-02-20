@@ -71,9 +71,11 @@
     <arg name="moveit_warehouse_database_path" value="$(arg db_path)"/>
   </include>
 
-  <!-- <node name="mimic_grip" 
+
+<!-- rosrun ur5_trajectory_gen fork_obj_pos.py -->
+<!-- <node name="mimic_grip_1" 
             pkg="ur5_trajectory_gen" 
-            type="mimic_grip_fork.py" > -->
-      
-  <!-- </node> -->
+            type="fork_obj_pos.py" >
+        </node> -->
+
 </launch>

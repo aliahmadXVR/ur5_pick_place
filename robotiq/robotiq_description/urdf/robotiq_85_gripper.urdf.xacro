@@ -218,17 +218,16 @@
 
 <!-- ____________________________________________________ -->
 <!-- Manually Added by AA for Mimicing an object intially in Hand -->
-    <!-- <joint name="${prefix}robotiq_85_object_grasp_joint" type="fixed">
+    <joint name="${prefix}robotiq_85_object_grasp_joint" type="fixed">
       <parent link="${prefix}robotiq_85_right_finger_tip_link"/>
-      <child link="${prefix}robotiq_85_object_grasp_link"/>
-      <axis xyz="0 0 1"/>
+      <child link="${prefix}robotiq_85_object_grasp_link"/> 
+      <axis xyz="0 0 1"/> 
       <origin rpy="0.0 0.0 0.0" xyz="0.04303959807 -0.03759940821  0.0"/>
       <limit lower="-3.14" upper="3.14" velocity="100.0" effort="1.5"/>
-      <mimic joint="${prefix}robotiq_85_left_knuckle_joint" multiplier="-1"/>
-    </joint> -->
+    </joint>
 
 <!-- Manually Added by AA for Mimicing an object intially in Hand -->
-  <!-- <link name="${prefix}robotiq_85_object_grasp_link">
+  <link name="${prefix}robotiq_85_object_grasp_link">
       <visual>
         <geometry>
           <mesh filename="package://ur5_gripper_moveit_config/models/fork_object/meshes/Lingjian new meter 1.dae"/>
@@ -239,7 +238,7 @@
           <mesh filename="package://ur5_gripper_moveit_config/models/fork_object/meshes/Lingjian new meter 1.dae"/>
         </geometry>
       </collision>
-    </link>  -->
+    </link> 
 <!-- ___________________________________________________ -->
 
     <link name="${prefix}robotiq_85_left_finger_tip_link">
